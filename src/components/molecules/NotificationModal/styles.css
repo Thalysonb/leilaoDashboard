@@ -1,0 +1,23 @@
+.overlay {
+  opacity: 1;
+  pointer-events: none;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000077
+}
+
+.modal {
+
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 20px;
+  background-color: white;
+  max-width: 300px;
+}

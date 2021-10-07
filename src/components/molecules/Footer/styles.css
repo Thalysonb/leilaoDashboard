@@ -9,9 +9,20 @@
   transform: rotate(-90deg);
 }
 
-.footer-content{
+.footer-content {
   padding-top: 40px;
-  align-items: center; 
-  justify-content: center;
   width: 100%;
+}
+
+.footer-link {
+  color: #d8e0f2;
+  cursor: pointer;
+  text-align: left;
+}
+
+.copyright {
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #828ba2;
 }

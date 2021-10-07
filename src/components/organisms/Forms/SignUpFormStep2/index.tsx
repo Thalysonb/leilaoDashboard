@@ -1,11 +1,12 @@
-import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
-import { Button, Input } from "../../../atoms";
-import "./styles.css";
-import { useForm } from "react-hook-form";
 import axios from "axios";
-import { toast } from "react-toastify";
+import React, { FC, useState } from "react";
+import { Col, Container, Row } from "react-grid-system";
+import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
+import { Button, Input, TextLink, Title } from "../../../atoms";
+import { NotificationModal } from "../../../molecules";
+import "./styles.css";
 
 type SignUpFormData = {
   nickname: string;
@@ -21,6 +22,7 @@ const defaultValues: SignUpFormData = {
 
 const SignUpFormStep2: FC = () => {
   const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
 
   const { register, errors, handleSubmit, getValues, clearErrors } =
     useForm<SignUpFormData>({
@@ -46,8 +48,8 @@ const SignUpFormStep2: FC = () => {
     };
     axios
       .post(signUpPath, payload)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        setShowModal(true);
       })
       .catch((err) => {
         toast.error(err.response.data.message, {
@@ -75,23 +77,25 @@ const SignUpFormStep2: FC = () => {
   };
 
   const goToLogin = () => {
-    history.push('/')
-  }
+    history.push("/");
+  };
 
   return (
     <Container>
-      <Row className="mb50">
-        <label>Entre com seu nome de usuário e senha.</label>
+      <Row className="justify-content-center">
+        <Col md={4}>
+          <Title text="Pra terminar, defina um nome de usuário e uma senha" />
+        </Col>
       </Row>
       <Row>
-        <Col md={6} lg={4} style={{ marginLeft: "auto", marginRight: "auto" }}>
+        <Col xs={10} md={6} lg={4} className="ml-auto mr-auto">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Row className="mb-8">
+            <Row className="mb-8 text-center">
               <Input
                 ref={register({ required: true })}
                 name="nickname"
                 placeholder="Nome de usuário"
-                type='text'
+                type="text"
                 error={errors.nickname ? "Nome é obrigatório" : ""}
               />
             </Row>
@@ -103,7 +107,7 @@ const SignUpFormStep2: FC = () => {
                 })}
                 name="password"
                 placeholder="Senha"
-                type='password'
+                type="password"
                 error={
                   errors.password?.type === "required"
                     ? "Senha é obrigatória"
@@ -121,7 +125,7 @@ const SignUpFormStep2: FC = () => {
                 })}
                 name="confirmPassword"
                 placeholder="Confirmar senha"
-                type='password'
+                type="password"
                 error={
                   errors.confirmPassword?.type === "required"
                     ? "Confirmação é obrigatória"
@@ -132,30 +136,25 @@ const SignUpFormStep2: FC = () => {
               />
             </Row>
 
-            <Row
-              style={{
-                justifyContent: "center",
-                marginTop: 30,
-                marginBottom: 30,
-              }}
-            >
-              <label className="label">
+            <Row className="justify-content-center mt-30 mb-30">
+              <label className="label-default">
                 Eu concordo com os termos e condições de uso
               </label>
             </Row>
             <Row>
               <Button type="primary" label="Concluir" />
             </Row>
-            <Row style={{ justifyContent: "center", marginTop: 60 }}>
-              <label className="label">
-                Já tem cadastro? Faça
-                &nbsp;
-                <span className="text-underline cp" onClick={() => goToLogin()}>login aqui</span>
-              </label>
+            <Row className="justify-content-center mt-60">
+              <TextLink
+                text={"Já tem cadastro? Faça"}
+                link={"login aqui"}
+                onLinkClick={() => goToLogin()}
+              />
             </Row>
           </form>
         </Col>
       </Row>
+      <NotificationModal visible={showModal}/>
     </Container>
   );
 };

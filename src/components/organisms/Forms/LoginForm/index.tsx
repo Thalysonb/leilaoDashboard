@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import chave from "../../../../assets/icon/chave.svg";
 import userIcon from "../../../../assets/icon/user.svg";
-import { Button, Input } from "../../../atoms";
+import { Button, Input, TextLink, Title } from "../../../atoms";
 import "./styles.css";
 
 type LoginForm = {
@@ -32,8 +32,9 @@ const LoginForm: FC = () => {
     };
     axios
       .post(loginPath, payload)
-      .then((response) => {
-        console.log(response);
+      .then((response: any) => {
+        localStorage.setItem('userToken', response.data.token)
+        history.push("/dashboard");
       })
       .catch((err) => {
         toast.error(err.response.data.message, {
@@ -54,11 +55,14 @@ const LoginForm: FC = () => {
 
   return (
     <Container>
-      <Row className="mb50">
-        <label>Entre com seu nome de usuário e senha.</label>
+      <Row style={{ justifyContent: "center" }}>
+        <Title text="Olá! Seja bem-vindo ao EasyBind4U" />
+      </Row>
+      <Row style={{ justifyContent: "center" }} className="mb50">
+        <label className="label-default">Entre com seu nome de usuário e senha.</label>
       </Row>
       <Row>
-        <Col md={6} lg={4} style={{ marginLeft: "auto", marginRight: "auto" }}>
+        <Col xs={10}  md={6} lg={4} style={{ marginLeft: "auto", marginRight: "auto" }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Row className="mb-8">
               <Input
@@ -81,35 +85,33 @@ const LoginForm: FC = () => {
               />
             </Row>
             <Row style={{ justifyContent: "end" }}>
-              <label className="text-underline label cp">
-                Esqueceu a senha?
-              </label>
+              <TextLink
+                link={"Esqueceu a senha?"}
+              />
             </Row>
-            <Row style={{ marginTop: 100 }}>
+            <Row style={{ marginTop: 50 }}>
               <Button type="primary" label="Entrar" />
             </Row>
-            <Row style={{ justifyContent: "center", marginTop: 30 }}>
-              <label className="label">
-                Não tem uma conta? &nbsp;
-                <span
-                  className="text-underline cp"
-                  onClick={() => goToSignUp()}
-                >
-                  Cadastre-se
-                </span>
-              </label>
+            <Row style={{ justifyContent: "center", marginTop: 60 }}>
+              <TextLink
+                text={"Não tem uma conta?"}
+                link={"Cadastre-se"}
+                onLinkClick={() => goToSignUp()}
+              />
             </Row>
-            <Row style={{ justifyContent: "center", marginTop: 30 }}>
-              <label>OU</label>
+            <Row style={{ justifyContent: "center", marginTop: 30, position: 'relative' }}>
+              <div className="left-line"></div>
+              <label className='label-default'>OU</label>
+              <div className="right-line"></div>
             </Row>
             <Row style={{ justifyContent: "center", marginTop: 30 }}>
               <Col md={8}>
-                <Button type="google" label="Entrar com Google" />
+                <Button type="google" label="Entrar com Google" disabled/>
               </Col>
             </Row>
             <Row style={{ justifyContent: "center", marginTop: 30 }}>
               <Col md={8}>
-                <Button type="facebook" label="Entrar com Facebook" />
+                <Button type="facebook" label="Entrar com Facebook" disabled />
               </Col>
             </Row>
           </form>

@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -13,13 +11,96 @@ code {
 }
 
 .main-content {
-  height: calc(100vh - 240px);
+  margin-bottom: 150px;
 }
 
 ul {
   list-style-type: none;
+  margin-top: 0px;
 }
 
 .secondary-color{
   background-color: #1A1B20 ;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.w-90{
+  width: 90%;
+}
+
+.text-underline {
+  text-decoration-line: underline;
+  color: #828ba2;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.mb-8{
+  margin-bottom: 8px
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+
+.mt-20{
+  margin-top: 20px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.mt-60{
+  margin-top: 60px;
+}
+
+.mt-30{
+  margin-top: 30px;
+}
+
+.mb-30{
+  margin-bottom: 30px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.mr-5{
+  margin-right: 5px;
+}
+
+.ml-auto{
+  margin-left: auto !important;
+}
+
+.mr-auto{
+  margin-right: auto !important;
+}
+
+.cp{
+  cursor: pointer;
+}
+
+.label-default{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #828BA1;
+}
+
+.justify-content-center{
+  justify-content: center !important;
+}
+
+.text-center{
+  text-align: center !important;
 }
