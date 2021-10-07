@@ -1,0 +1,17 @@
+.divider-footer {
+  position: absolute;
+  left: 73.75%;
+  right: 15.35%;
+  top: 88.24%;
+  bottom: 11.76%;
+
+  border: 1px solid #34363f;
+  transform: rotate(-90deg);
+}
+
+.footer-content{
+  padding-top: 40px;
+  align-items: center; 
+  justify-content: center;
+  width: 100%;
+}

@@ -1,0 +1,64 @@
+.button {
+  width: 100%;
+  height: 53px;
+  background: #00c1a5;
+  border-radius: 8px;
+  border: none;
+  font-family: Roboto;
+  color: white;
+  font-size: 18px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.btn-facebook{
+  width: 100%;
+  height: 53px;
+  background: #3B5998;
+  border-radius: 8px;
+  border: none;
+  font-family: Roboto;
+  color: white;
+  font-size: 16px;
+  line-height: 33px;
+  cursor: pointer;
+}
+
+.btn-google{
+  width: 100%;
+  height: 53px;
+  background: #F2F6FB;
+  border-radius: 8px;
+  border: none;
+  font-family: Roboto;
+  color: #828BA1;
+  font-size: 16px;
+  line-height: 33px;
+  cursor: pointer;
+}
+
+.button-container{
+  position: relative;
+  width: 100%;
+}
+
+.btn-icon{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+
+.btn-logo{
+  width: 100%;
+  height: 40px;
+  background: #313641;
+  border-radius: 8px;
+  border: none;
+  font-family: Roboto;
+  color: #828BA1;
+  font-size: 16px;
+  line-height: 33px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}

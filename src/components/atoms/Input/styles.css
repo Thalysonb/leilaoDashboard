@@ -1,0 +1,51 @@
+.input {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 8px;
+  outline: none;
+  padding-left: 50px;
+}
+
+.input-color {
+  background: #e1e8f3;
+}
+
+.input-search-color {
+  background: #262A34;
+  color: #828BA1;
+}
+
+.icon-left {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+}
+
+.icon-right {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+}
+
+.icon-search {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.input-container {
+  width: 90%;
+  position: relative;
+}
+
+.divider {
+  position: absolute;
+  width: 27px;
+  height: 0px;
+  right: 21px;
+  top: 7px;
+  border: 1px solid #4a505c;
+  transform: rotate(90deg);
+}

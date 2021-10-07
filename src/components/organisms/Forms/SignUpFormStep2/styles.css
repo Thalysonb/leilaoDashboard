@@ -1,0 +1,24 @@
+.mb50 {
+  margin-bottom: 50px;
+}
+
+.label{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.text-underline {
+  text-decoration-line: underline;
+  color: #828ba2;
+}
+
+.mb-8{
+  margin-bottom: 8px
+}
+
+.cp{
+  cursor: pointer;
+}
